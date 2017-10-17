@@ -37,10 +37,18 @@ while($programPointer < $programLength) {
 
         case '2b': // +
             $memory[$pointer]++;
+
+            if ($memory[$pointer] > 255) {
+                $memory[$pointer] = 0;
+            }
             break;
 
         case '2d': // -
             $memory[$pointer]--;
+
+            if ($memory[$pointer] < 0) {
+                $memory[$pointer] = 255;
+            }
             break;
 
         case '2e': // .
